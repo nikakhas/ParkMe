@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Map Views</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css' rel='stylesheet' />
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js'></script>
+    <style>
+        #map {
+            height: 900px;
+            width: 1200px;
+            float:right;
+            bottom: 500px;
+            overflow: hidden;
+
+        }
+        #search-bar {
+            overflow: hidden;
+        }
+        h1 {
+            position: center;
+            font-size: 50px;
+            margin-top: 150px;
+        }
+    </style>
+</head>
+<body>
+    <h1>ParkMe</h1>
+    <h3>Enter a parking garage address</h3>
+    <input id="search-bar" type="text" placeholder="Search...">
+    <button id="search-button">Search</button>
+    <p>Addresses:</p>
+<tr style="height: 48px">
+    <a href="parkinglistviews.html"><td style="width: 70px;height: 24px;text-align: center">B - 140 Decatur Street</td></a><br />
+    <a href="parkinglistviews.html"><td style="width: 70px;height: 24px;text-align: center">C - 100 Decatur Street</td></a><br />
+    <a href="parkinglistviews.html"><td style="width: 70px;height: 24px;text-align: center">E - Collins Street</td></a><br />
+    <a href="parkinglistviews.html"><td style="width: 70px;height: 24px;text-align: center">G - 121 Collins Street</td></a><br />
+    <a href="parkinglistviews.html"><td style="width: 70px;height: 24px;text-align: center">H - 121 Collins Street</td></a><br />
+    <a href="parkinglistviews.html"><td style="width: 70px;height: 24px;text-align: center">K - 99 Gilmer Street</td></a><br />
+    <a href="parkinglistviews.html"><td style="width: 70px;height: 24px;text-align: center">L - 33 Gilmer Street </td></a><br />
+    <a href="parkinglistviews.html"><td style="width: 70px;height: 24px;text-align: center">M - 33 Auditorium Place</td></a><br />
+    <a href="parkinglistviews.html"><td style="width: 70px;height: 24px;text-align: center">N - 99 Gilmer Street</td></a><br />
+    <a href="parkinglistviews.html"><td style="width: 70px;height: 24px;text-align: center">R - Kimball @ Lower Wall Street</td></a><br />
+    <a href="parkinglistviews.html"><td style="width: 70px;height: 24px;text-align: center">S - 99 Gilmer Street</td></a><br />
+    <a href="parkinglistviews.html"><td style="width: 70px;height: 24px;text-align: center">T - 43 Auburn Avenue</td></a><br />
+    <a href="parkinglistviews.html"><td style="width: 70px;height: 24px;text-align: center">U - Decatur Street</td></a><br />
+    <a href="parkinglistviews.html"><td style="width: 70px;height: 24px;text-align: center">V - Law School</td></a><br />
+    <a href="parkinglistviews.html"><td style="width: 70px;height: 24px;text-align: center">Z - 30 Park Place South</td></a><br />
+    <a href="parkinglistviews.html"><td style="width: 70px;height: 24px;text-align: center">Lofts - 135 Edgewood Avenue</td></a><br />
+    <a href="parkinglistviews.html"><td style="width: 70px;height: 24px;text-align: center">CTB. - 75 Piedmont Avenue</td></a><br />
+    <a href="parkinglistviews.html"><td style="width: 70px;height: 24px;text-align: center">Turner Field - 755 Hank Aaron Drive</td></a><br />
+
+    <div id='map'></div>
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoibWNjbHVyZWUiLCJhIjoiY2xnb25vNmp1MHBuczNpcG02OHViZHQ1biJ9.sOBZvdgkpUnsXZG0LYvrEg';
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v11',
+            center: [-84.386330, 33.753746],
+            zoom: 18
+        });
+        const searchBar = document.getElementById('search-bar');
+        const searchButton = document.getElementById('search-button');
+
+        const marker = new mapboxgl.Marker()
+            .setLngLat([-84.386330, 33.753746]) // Set the marker's coordinates
+            .addTo(map);
+
+        const parkingDecks = [
+            {
+                name: 'G Deck',
+                coordinates: [-84.385372, 33.752706]
+            },
+            {
+                name: 'T Deck',
+                coordinates: [-84.384609, 33.755056]
+            },
+            {
+                name: 'S Deck',
+                coordinates: [-84.389148, 33.749508]
+            }
+        ];
+
+        // Add a source for the parking deck data
+        map.addSource('parking-decks', {
+            type: 'geojson',
+            data: {
+                type: 'FeatureCollection',
+                features: parkingDecks.map(parkingDeck => ({
+                    type: 'Feature',
+                    geometry: {
+                        type: 'Point',
+                        coordinates: parkingDeck.coordinates
+                    },
+                    properties: {
+                        name: parkingDeck.name
+                    }
+                }))
+            }
+        });
+
+        // Add a layer for the parking deck markers
+        map.addLayer({
+            id: 'parking-decks-layer',
+            type: 'symbol',
+            source: 'parking-decks',
+            layout: {
+                'icon-image': 'parking',
+                'icon-allow-overlap': true,
+                'text-field': '{name}',
+                'text-font': ['Open Sans Bold'],
+                'text-offset': [0, 1.5],
+                'text-size': 12
+            }
+        });
+
+        // Add an event listener to the search button
+        searchButton.addEventListener('click', () => {
+            // Get the user's search query
+            const query = searchBar.value;
+
+            // Update the map with the new query
+            updateMap(query);
+        });
+
+        // Define a function to update the map
+        function updateMap(query) {
+            // Use the Mapbox GL JS geocoding API to get the coordinates of the user's search query
+            fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${query}.json?access_token=${mapboxgl.accessToken}`)
+                .then(response => response.json())
+                .then(data => {
+                    // Get the coordinates of the first result
+                    const coordinates = data.features[0].center;
+
+                    // Set the map's center and zoom level to the coordinates of the search query
+                    map.setCenter(coordinates);
+                    map.setZoom(14);
+
+                    // Use the Mapbox GL JS setFilter method to filter the features on the map based on the user's search query
+                    map.setFilter('my-layer', ['==', 'name', query]);
+                });
+        }
+
+        document.getElementById('search').appendChild(geocoder.onAdd(map));
+    </script>
+</body>
+</html>

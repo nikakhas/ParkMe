@@ -1,0 +1,66 @@
+USE [ParkMe]
+GO
+
+/****** Object:  Table [dbo].[Decks]    Script Date: 4/19/2023 4:35:15 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- Users 
+
+CREATE TABLE [dbo].[Users](
+	[CampusId] [nvarchar](50) NOT NULL,
+	[Name] [nvarchar](50) NOT NULL,
+	[Surname] [nvarchar](50) NOT NULL,
+ CONSTRAINT [PK_Users] PRIMARY KEY CLUSTERED 
+(
+	[CampusId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+
+-- Decks 
+
+CREATE TABLE [dbo].[Decks](
+	[DeckId] [int] NOT NULL,
+	[Name] [nvarchar](50) NOT NULL,
+	[Address] [nvarchar](100) NOT NULL,
+ CONSTRAINT [PK_Decks] PRIMARY KEY CLUSTERED 
+(
+	[DeckId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+
+-- Spots
+
+CREATE TABLE [dbo].[Spots](
+	[SpotId] [int] NOT NULL,
+	[DeckId] [int] NOT NULL,
+	[SpotName] [nvarchar](50) NOT NULL,
+ CONSTRAINT [PK_Spots] PRIMARY KEY CLUSTERED 
+(
+	[SpotId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[Spots]  WITH CHECK ADD  CONSTRAINT [FK_Spots_Decks1] FOREIGN KEY([DeckId])
+REFERENCES [dbo].[Decks] ([DeckId])
+GO
+
+ALTER TABLE [dbo].[Spots] CHECK CONSTRAINT [FK_Spots_Decks1]
+
+-- UserSpotMapping
+
+CREATE TABLE [dbo].[UserSpotMapping](
+	[CampusId] [nvarchar](50) NOT NULL,
+	[SpotId] [int] NOT NULL,
+	[DateFrom] [datetime] NOT NULL,
+	[DateTo] [datetime] NOT NULL,
+	[Charge] [decimal](18, 8) NOT NULL
+) ON [PRIMARY]
+
+GO
+
+

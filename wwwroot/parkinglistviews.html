@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Park Listing Views</title>
+</head>
+
+<body>
+  <center>
+    <h1>Select a Parking Space</h1>
+    <h3>Floor 1</h3>
+    <ul id="floor1">
+      <li class="available" onclick="confirmSelection(this)">Spot 1</li>
+      <li class='unavailable'>Spot 2</li>
+      <li class="available" onclick="confirmSelection(this)">Spot 3</li>
+      <li class="available" onclick="confirmSelection(this)">Spot 4</li>
+      <li class='unavailable'>Spot 5</li>
+      <li class="available" onclick="confirmSelection(this)">Spot 6</li>
+      <li class="available" onclick="confirmSelection(this)">Spot 7</li>
+      <li class='unavailable'>Spot 8</li>
+      <li class="available" onclick="confirmSelection(this)">Spot 9</li>
+      <li class="available" onclick="confirmSelection(this)">Spot 10</li>
+      <li class='unavailable'>Spot 11</li>
+      <li class="available" onclick="confirmSelection(this)">Spot 12</li>
+      <li class="available" onclick="confirmSelection(this)">Spot 13</li>
+      <li class='unavailable'>Spot 14</li>
+      <li class="available" onclick="confirmSelection(this)">Spot 15</li>
+    </ul>
+    <h3>Floor 2</h3>
+    <ul id="floor2">
+      <li class='unavailable'>Spot 1</li>
+      <li class="available" onclick="confirmSelection(this)">Spot 2</li>
+      <li class='unavailable'>Spot 3</li>
+      <li class="available" onclick="confirmSelection(this)">Spot 4</li>
+      <li class='unavailable'>Spot 5</li>
+      <li class="available" onclick="confirmSelection(this)">Spot 6</li>
+      <li class='unavailable'>Spot 7</li>
+      <li class="available" onclick="confirmSelection(this)">Spot 8</li>
+      <li class='unavailable'>Spot 9</li>
+      <li class="available" onclick="confirmSelection(this)">Spot 10</li>
+      <li class='unavailable'>Spot 11</li>
+      <li class="available" onclick="confirmSelection(this)">Spot 12</li>
+      <li class='unavailable'>Spot 13</li>
+      <li class="available" onclick="confirmSelection(this)">Spot 14</li>
+      <li class='unavailable'>Spot 15</li>
+    </ul>
+    <h3>Floor 3</h3>
+    <ul id="floor3">
+      <li class="available" onclick="confirmSelection(this)">Spot 1</li>
+      <li class="available" onclick="confirmSelection(this)">Spot 2</li>
+      <li class="available" onclick="confirmSelection(this)">Spot 3</li>
+      <li class="available" onclick="confirmSelection(this)">Spot 4</li>
+      <li class="available" onclick="confirmSelection(this)">Spot 5</li>
+      <li class="available" onclick="confirmSelection(this)">Spot 6</li>
+      <li class="available" onclick="confirmSelection(this)">Spot 7</li>
+      <li class="available" onclick="confirmSelection(this)">Spot 8</li>
+      <li class="available" onclick="confirmSelection(this)">Spot 9</li>
+      <li class="available" onclick="confirmSelection(this)">Spot 10</li>
+      <li class="available" onclick="confirmSelection(this)">Spot 11</li>
+      <li class="available" onclick="confirmSelection(this)">Spot 12</li>
+      <li class="available" onclick="confirmSelection(this)">Spot 13</li>
+      <li class="available" onclick="confirmSelection(this)">Spot 14</li>
+      <li class="available" onclick="confirmSelection(this)">Spot 15</li>
+    </ul>
+  </center>
+
+  <div class="container">
+    <button onclick="bookParkingSpot()"><a href="mapviews.html">Book this parking spot</a></button>
+  </div>
+
+  <style>
+    .available {
+      background-color: green;
+      cursor: pointer;
+    }
+
+    .available.selected {
+      background-color: lightblue;
+    }
+
+    .unavailable {
+      background-color: red;
+    }
+
+    .selected {
+      background-color: lightblue;
+    }
+
+    h1 {
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    h2 {
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    button {
+      margin: 0;
+      position: absolute;
+      bottom: 80%;
+      left: 50%;
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      width: 500px;
+      font-size: 20px;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    .container {
+      height: 200px;
+      position: relative;
+    }
+  </style>
+  <script>
+    const spots = document.querySelectorAll('li.available');
+
+    for (let i = 0; i < spots.length; i++) {
+      spots[i].addEventListener('click', function () {
+        // Check if the clicked spot is already selected
+        if (!spots[i].classList.contains('selected')) {
+          // Show a confirmation dialog box
+          const confirmed = confirm('Do you want to select this parking spot?');
+          if (confirmed) {
+            // Clear the selected class from all spots
+            for (let j = 0; j < spots.length; j++) {
+              spots[j].classList.remove('selected');
+            }
+            // Add the selected class to the clicked spot
+            spots[i].classList.add('selected');
+          }
+        }
+      });
+    }
+  </script>
+  <script>
+    function bookParkingSpot() {
+      const selectedSpot = document.querySelector('li.available.selected');
+      if (selectedSpot) {
+        const spotId = selectedSpot.textContent.split(' ')[1]; // Assumes the format "Spot [ID]"
+        const request = new XMLHttpRequest();
+        request.open('PUT', '/api/parkingspot/' + spotId); // Replace with the actual API endpoint URL
+        request.setRequestHeader('Content-Type', 'application/json');
+        request.onload = function () {
+          if (request.status === 200) {
+            alert('Parking spot booked successfully!');
+          } else {
+            alert('Failed to book parking spot.');
+          }
+        };
+        request.send();
+      } else {
+        alert('Please select a parking spot first.');
+      }
+    }
+  </script>
+  <script>
+    function confirmSelection(elem, spotId) {
+      // ...
+      // Send the selected spot's ID to the C# application using AJAX
+      $.ajax({
+        type: 'POST',
+        url: '/updateParkingSpot',
+        data: {'spotId': spotId},
+        success: function (response) {
+          console.log('Spot updated successfully!');
+        }
+      });
+    }
+  </script>
+  <script>
+    const spots = document.querySelectorAll('li.available');
+    for (let i = 0; i < spots.length; i++) {
+      spots[i].addEventListener('click', function () {
+        // Check if the clicked spot is already selected
+        if (!spots[i].classList.contains('selected')) {
+          // Show a confirmation dialog box
+          const confirmed = confirm('Do you want to select this parking spot?');
+          if (confirmed) {
+            // Clear the selected class from all spots
+            for (let j = 0; j < spots.length; j++) {
+              spots[j].classList.remove('selected');
+            }
+            // Add the selected class to the clicked spot
+            spots[i].classList.add('selected');
+            // Update the hidden input fields in the form
+            document.getElementById('floorNumber').value = i < 6 ? 1 : i < 11 ? 2 : 3;
+            document.getElementById('spotNumber').value = i % 5 + 1;
+          }
+        }
+      });
+    }
+  </script>
+</body>
+
+</html>

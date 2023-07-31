@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>ParkMe</title>
+  <style type="text/css">
+    body {
+      background-color: var(--primary-color);
+      font-family: 'Verdana', sans-serif;
+      margin: 0;
+    }
+
+    #main {
+      background-color: white;
+      width: 600px;
+      height: 300px;
+      border-radius: 30px;
+      color: #0039A6;
+    }
+
+    h1 {
+      position: center;
+      font-size: 50px;
+      margin-top: 150px;
+    }
+
+    .text {
+      width: 250px;
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    center {
+      position: relative;
+    }
+
+    p {
+      border-spacing: 75px;
+      border-style: solid;
+      border-width: 1px;
+      border-radius: 0px;
+      border-color: black;
+      font-size: 20px;
+      width: 135px;
+      height: 120px;
+      margin: 5px;
+      margin-top: 200px;
+      float: right;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+  </style>
+  <script type="text/javascript">
+    function validateForm() {
+      var username = document.forms["myForm"]["username"].value;
+      var password = document.forms["myForm"]["password"].value;
+      if (username == "demo" && password == "demo") {
+        window.location.href = "mapviews.html";
+        return false;
+      } else {
+        alert("Incorrect username or password");
+        return false;
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <center>
+    <div id="main">
+      <h1>Park Me</h1>
+      <form name="myForm" onsubmit="return validateForm()">
+        <input type="text" name="username" class="text" placeholder="username"><br><br>
+        <input type="password" name="password" class="text" placeholder="password"><br><br>
+        <input type="submit" value="Login" class="text"><br><br>
+        <input type="button" value="Register" class="text"
+          onclick="alert('Registration is not available at this time');">
+      </form>
+      <!--<img src="gsulogo.png" width="245" height="200" style="margin-top:30px; right:5px">-->
+    </div>
+  </center>
+</body>
+
+</html>

@@ -1,0 +1,287 @@
+{
+  "type": "FeatureCollection",
+  "query": [ "georgia", "state", "university" ],
+  "features": [
+    {
+      "id": "poi.154618842051",
+      "type": "Feature",
+      "place_type": [ "poi" ],
+      "relevance": 1,
+      "properties": {
+        "wikidata": "Q1509333",
+        "address": "33 Gilmer St SW",
+        "category": "college, university",
+        "landmark": true,
+        "foursquare": "453db7c3f964a5201f3c1fe3",
+        "maki": "college"
+      },
+      "text": "Georgia State University",
+      "place_name": "Georgia State University, 33 Gilmer St SW, Atlanta, Georgia 30303, United States",
+      "center": [ -84.386814, 33.7539675 ],
+      "geometry": {
+        "coordinates": [ -84.386814, 33.7539675 ],
+        "type": "Point"
+      },
+      "context": [
+        {
+          "id": "neighborhood.216886508",
+          "mapbox_id": "dXJuOm1ieHBsYzpETzFzN0E",
+          "text": "Five Points"
+        },
+        {
+          "id": "postcode.99856108",
+          "mapbox_id": "dXJuOm1ieHBsYzpCZk91N0E",
+          "text": "30303"
+        },
+        {
+          "id": "place.13633772",
+          "wikidata": "Q23556",
+          "mapbox_id": "dXJuOm1ieHBsYzowQWpz",
+          "text": "Atlanta"
+        },
+        {
+          "id": "district.8152812",
+          "wikidata": "Q486633",
+          "mapbox_id": "dXJuOm1ieHBsYzpmR2Jz",
+          "text": "Fulton County"
+        },
+        {
+          "id": "region.173292",
+          "short_code": "US-GA",
+          "wikidata": "Q1428",
+          "mapbox_id": "dXJuOm1ieHBsYzpBcVRz",
+          "text": "Georgia"
+        },
+        {
+          "id": "country.8940",
+          "short_code": "us",
+          "wikidata": "Q30",
+          "mapbox_id": "dXJuOm1ieHBsYzpJdXc",
+          "text": "United States"
+        }
+      ]
+    },
+    {
+      "id": "poi.936302915815",
+      "type": "Feature",
+      "place_type": [ "poi" ],
+      "relevance": 1,
+      "properties": {
+        "foursquare": "4b1fcc3df964a520242924e3",
+        "landmark": true,
+        "address": "75 Piedmont Ave SE",
+        "category": "college, university",
+        "maki": "college"
+      },
+      "text": "Georgia State University Student Center",
+      "place_name": "Georgia State University Student Center, 75 Piedmont Ave SE, Atlanta, Georgia 30303, United States",
+      "center": [ -84.384444, 33.752733 ],
+      "geometry": {
+        "coordinates": [ -84.384444, 33.752733 ],
+        "type": "Point"
+      },
+      "context": [
+        {
+          "id": "postcode.99856108",
+          "mapbox_id": "dXJuOm1ieHBsYzpCZk91N0E",
+          "text": "30303"
+        },
+        {
+          "id": "place.13633772",
+          "wikidata": "Q23556",
+          "mapbox_id": "dXJuOm1ieHBsYzowQWpz",
+          "text": "Atlanta"
+        },
+        {
+          "id": "district.8152812",
+          "wikidata": "Q486633",
+          "mapbox_id": "dXJuOm1ieHBsYzpmR2Jz",
+          "text": "Fulton County"
+        },
+        {
+          "id": "region.173292",
+          "short_code": "US-GA",
+          "wikidata": "Q1428",
+          "mapbox_id": "dXJuOm1ieHBsYzpBcVRz",
+          "text": "Georgia"
+        },
+        {
+          "id": "country.8940",
+          "short_code": "us",
+          "wikidata": "Q30",
+          "mapbox_id": "dXJuOm1ieHBsYzpJdXc",
+          "text": "United States"
+        }
+      ]
+    },
+    {
+      "id": "poi.996432464487",
+      "type": "Feature",
+      "place_type": [ "poi" ],
+      "relevance": 1,
+      "properties": {
+        "foursquare": "4bd729d70b779c74538f04a0",
+        "landmark": true,
+        "address": "140 Decatur St SE",
+        "category": "college, university",
+        "maki": "college"
+      },
+      "text": "Georgia State University Courtyard",
+      "place_name": "Georgia State University Courtyard, 140 Decatur St SE, Atlanta, Georgia 30303, United States",
+      "center": [ -84.386706, 33.753073 ],
+      "geometry": {
+        "coordinates": [ -84.386706, 33.753073 ],
+        "type": "Point"
+      },
+      "context": [
+        {
+          "id": "neighborhood.216886508",
+          "mapbox_id": "dXJuOm1ieHBsYzpETzFzN0E",
+          "text": "Five Points"
+        },
+        {
+          "id": "postcode.99856108",
+          "mapbox_id": "dXJuOm1ieHBsYzpCZk91N0E",
+          "text": "30303"
+        },
+        {
+          "id": "place.13633772",
+          "wikidata": "Q23556",
+          "mapbox_id": "dXJuOm1ieHBsYzowQWpz",
+          "text": "Atlanta"
+        },
+        {
+          "id": "district.8152812",
+          "wikidata": "Q486633",
+          "mapbox_id": "dXJuOm1ieHBsYzpmR2Jz",
+          "text": "Fulton County"
+        },
+        {
+          "id": "region.173292",
+          "short_code": "US-GA",
+          "wikidata": "Q1428",
+          "mapbox_id": "dXJuOm1ieHBsYzpBcVRz",
+          "text": "Georgia"
+        },
+        {
+          "id": "country.8940",
+          "short_code": "us",
+          "wikidata": "Q30",
+          "mapbox_id": "dXJuOm1ieHBsYzpJdXc",
+          "text": "United States"
+        }
+      ]
+    },
+    {
+      "id": "poi.1099511631302",
+      "type": "Feature",
+      "place_type": [ "poi" ],
+      "relevance": 1,
+      "properties": {
+        "foursquare": "4a41035df964a520b4a41fe3",
+        "landmark": true,
+        "wikidata": "Q5547807",
+        "address": "103 Decatur St SE",
+        "category": "college quad, quad, college, leisure"
+      },
+      "text": "Georgia State University Library",
+      "place_name": "Georgia State University Library, 103 Decatur St SE, Atlanta, Georgia 30303, United States",
+      "center": [ -84.38654199999999, 33.752798 ],
+      "geometry": {
+        "coordinates": [ -84.38654199999999, 33.752798 ],
+        "type": "Point"
+      },
+      "context": [
+        {
+          "id": "neighborhood.216886508",
+          "mapbox_id": "dXJuOm1ieHBsYzpETzFzN0E",
+          "text": "Five Points"
+        },
+        {
+          "id": "postcode.99856108",
+          "mapbox_id": "dXJuOm1ieHBsYzpCZk91N0E",
+          "text": "30303"
+        },
+        {
+          "id": "place.13633772",
+          "wikidata": "Q23556",
+          "mapbox_id": "dXJuOm1ieHBsYzowQWpz",
+          "text": "Atlanta"
+        },
+        {
+          "id": "district.8152812",
+          "wikidata": "Q486633",
+          "mapbox_id": "dXJuOm1ieHBsYzpmR2Jz",
+          "text": "Fulton County"
+        },
+        {
+          "id": "region.173292",
+          "short_code": "US-GA",
+          "wikidata": "Q1428",
+          "mapbox_id": "dXJuOm1ieHBsYzpBcVRz",
+          "text": "Georgia"
+        },
+        {
+          "id": "country.8940",
+          "short_code": "us",
+          "wikidata": "Q30",
+          "mapbox_id": "dXJuOm1ieHBsYzpJdXc",
+          "text": "United States"
+        }
+      ]
+    },
+    {
+      "id": "poi.412316920652",
+      "type": "Feature",
+      "place_type": [ "poi" ],
+      "relevance": 1,
+      "properties": {
+        "foursquare": "4b7b1936f964a5204a512fe3",
+        "landmark": true,
+        "address": "66 Courtland St SE",
+        "category": "college bookstore, shop"
+      },
+      "text": "Georgia State University Bookstore",
+      "place_name": "Georgia State University Bookstore, 66 Courtland St SE, Atlanta, Georgia 30303, United States",
+      "center": [ -84.385757, 33.752758 ],
+      "geometry": {
+        "coordinates": [ -84.385757, 33.752758 ],
+        "type": "Point"
+      },
+      "context": [
+        {
+          "id": "postcode.99856108",
+          "mapbox_id": "dXJuOm1ieHBsYzpCZk91N0E",
+          "text": "30303"
+        },
+        {
+          "id": "place.13633772",
+          "wikidata": "Q23556",
+          "mapbox_id": "dXJuOm1ieHBsYzowQWpz",
+          "text": "Atlanta"
+        },
+        {
+          "id": "district.8152812",
+          "wikidata": "Q486633",
+          "mapbox_id": "dXJuOm1ieHBsYzpmR2Jz",
+          "text": "Fulton County"
+        },
+        {
+          "id": "region.173292",
+          "short_code": "US-GA",
+          "wikidata": "Q1428",
+          "mapbox_id": "dXJuOm1ieHBsYzpBcVRz",
+          "text": "Georgia"
+        },
+        {
+          "id": "country.8940",
+          "short_code": "us",
+          "wikidata": "Q30",
+          "mapbox_id": "dXJuOm1ieHBsYzpJdXc",
+          "text": "United States"
+        }
+      ]
+    }
+  ],
+  "attribution": "NOTICE: © 2023 Mapbox and its suppliers. All rights reserved. Use of this data is subject to the Mapbox Terms of Service (https://www.mapbox.com/about/maps/). This response and the information it contains may not be retained. POI(s) provided by Foursquare."
+}
